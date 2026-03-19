@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Mohamed Ali - Flutter Developer Portfolio">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+  <!-- Suppress deprecated unload event warning from Flutter web engine -->
+  <meta http-equiv="Permissions-Policy" content="unload=()">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="mohamedali_portfolio">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>mohamedali_portfolio</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      background-color: #0F172A;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0F172A;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+    .profile-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 32px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #6366F1;
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    /* Morph animation: Zoom and Fade in center */
+    .profile-container.morphing {
+      filter: blur(8px);
+      opacity: 0;
+    }
+    
+    /* Remove translation on all screen sizes to keep it centered */
+    @media (min-width: 800px) {
+      .profile-container.morphing {
+        opacity: 0;
+      }
+    }
+    
+    @media (max-width: 799px) {
+      .profile-container.morphing {
+        opacity: 0;
+      }
+    }
+    .glow {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+      z-index: -1;
+      animation: glow-pulse 1.5s ease-in-out infinite;
+    }
+    .name-text {
+      color: #F8FAFC;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+    .loading-bar {
+      width: 200px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-top: 24px;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .loading-fill {
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, #6366F1, #22D3EE);
+      animation: loading 0.8s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+    @keyframes loading {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(300%); }
+    }
+  </style>
+  <script>
+    const originalWarn = console.warn;
+    const suppressPatterns = [
+      'Intl.v8BreakIterator',
+      'Session History Item Has Been Marked Skippable',
+      'history manipulation intervention'
+    ];
+
+    console.warn = function (...args) {
+      if (args[0] && typeof args[0] === 'string' && suppressPatterns.some(p => args[0].includes(p))) {
+        return;
+      }
+      originalWarn.apply(console, args);
+    };
+
+    function hideSplash() {
+      const splash = document.getElementById('splash');
+      const container = document.querySelector('.profile-container');
+      const text = document.querySelector('.name-text');
+      const bar = document.querySelector('.loading-bar');
+      
+      if (splash) {
+        // Trigger morph animation
+        if (container) container.classList.add('morphing');
+        if (text) text.style.opacity = '0';
+        if (bar) bar.style.opacity = '0';
+        
+        // Wait for animation then fade out splash
+        setTimeout(() => {
+          splash.style.opacity = '0';
+          setTimeout(() => splash.remove(), 300);
+        }, 300);
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="splash">
+    <div class="profile-container">
+      <div class="glow"></div>
+      <img src="my_image.jpg" class="profile-img" alt="Mohamed Ali">
+    </div>
+    <div class="name-text">MOHAMED ALI</div>
+    <div class="loading-bar">
+      <div class="loading-fill"></div>
+    </div>
+  </div>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

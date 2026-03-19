@@ -1,0 +1,238 @@
+{
+  "personalInfo": {
+    "name": "Mohamed Ali",
+    "title": "Flutter Developer",
+    "description": "I build scalable mobile applications using Flutter, Clean Architecture, and modern backend integrations.",
+    "about": "Flutter developer with 2+ years of experience building production mobile applications using Flutter.\nExperienced with Clean Architecture, MVVM, and Cubit/BLoC.\nBuilt and published multiple mobile apps integrated with Firebase, Supabase, and REST APIs.",
+    "image": "assets/images/my_image.jpg",
+    "cv": "cv.pdf",
+    "github": "https://github.com/Mohamedali0219",
+    "linkedin": "https://www.linkedin.com/in/mohamed-ali-khamis/",
+    "email": "mohamedali.d2002@gmail.com",
+    "whatsappNumber": "+201558044473",
+    "phone": "+201558044473"
+  },
+  "stats": [
+    {
+      "title": "5",
+      "subtitle": "Production Apps",
+      "icon": "mobileScreen"
+    },
+    {
+      "title": "2+",
+      "subtitle": "Years Experience",
+      "icon": "clockRotateLeft"
+    },
+    {
+      "title": "Multiple",
+      "subtitle": "Backend Integrations",
+      "icon": "database"
+    },
+    {
+      "title": "100%",
+      "subtitle": "Cross-Platform",
+      "icon": "layerGroup"
+    }
+  ],
+  "services": [
+    {
+      "title": "Mobile App Development",
+      "description": "Building high-performance, cross-platform mobile applications using Flutter and Dart with clean architecture.",
+      "icon": "mobileScreenButton"
+    },
+    {
+      "title": "API & Backend Integration",
+      "description": "Seamlessly integrating REST APIs, Firebase, and Supabase to provide robust backend solutions and real-time data.",
+      "icon": "server"
+    },
+    {
+      "title": "UI/UX Implementation",
+      "description": "Translating complex designs into beautiful, responsive, and interactive user interfaces with smooth animations.",
+      "icon": "palette"
+    },
+    {
+      "title": "App Optimization",
+      "description": "Improving app performance, fixing bugs, and ensuring smooth user experiences through rigorous testing and debugging.",
+      "icon": "bolt"
+    }
+  ],
+  "expertise": [
+    { "name": "Flutter", "icon": "flutter" },
+    { "name": "Firebase", "icon": "bolt" },
+    { "name": "Clean Architecture", "icon": "layerGroup" },
+    { "name": "Dart", "icon": "code" },
+    { "name": "Cubit/BLoC", "icon": "atom" },
+    { "name": "REST APIs", "icon": "link" },
+    { "name": "Git/GitHub", "icon": "github" },
+    { "name": "App Store/Play Store", "icon": "store" },
+    { "name": "Payment Gateways", "icon": "checkDouble" },
+    { "name": "Google Maps", "icon": "link" },
+    { "name": "Push Notifications", "icon": "bolt" }
+  ],
+  "expertiseDetails": [
+    {
+      "title": "Problem Solver",
+      "desc": "Turning complex problems into elegant code.",
+      "icon": "brain"
+    },
+    {
+      "title": "Clean Code",
+      "desc": "Maintainable, scalable, and modern architectures.",
+      "icon": "checkDouble"
+    },
+    {
+      "title": "Performance",
+      "desc": "Optimized apps for smooth 60/120 FPS experience.",
+      "icon": "gaugeHigh"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Flutter Developer",
+      "company": "Qatfa Code Company",
+      "period": "2025 – Present"
+    },
+    {
+      "title": "Flutter Developer",
+      "company": "Bright Code",
+      "period": "2024 – 2025"
+    },
+    {
+      "title": "Coding Instructor",
+      "company": "iSchool",
+      "period": "2024 – 2025"
+    },
+    {
+      "title": "Flutter Core Team",
+      "company": "Google Developer Student Clubs",
+      "period": "2023 – 2024"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Mazid Mart",
+      "description": "Built a production-ready e-commerce mobile application for selling silver products. Integrated authentication, shopping cart, order management, and push notifications.",
+      "imageUrl": "assets/images/MazidMart_Banner.jpg",
+      "technologies": [
+        "Flutter",
+        "Supabase",
+        "REST API",
+        "Clean Architecture",
+        "Cubit"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.qatfa.mazid_silver_customer",
+      "githubUrl": "https://github.com/mohamedalifci"
+    },
+    {
+      "title": "Souq Basmaya",
+      "description": "Built a production-ready marketplace application for buyers and sellers. Integrated WhatsApp communication between sellers and customers.",
+      "imageUrl": "assets/images/Souq_Basmaya_Banner.jpg",
+      "technologies": [
+        "Flutter",
+        "REST API",
+        "Cubit",
+        "Hive"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.brightcode.souq_basmaya",
+      "githubUrl": "https://github.com/mohamedalifci"
+    },
+    {
+      "title": "Daman Care",
+      "description": "Created a healthcare membership application connecting users with medical providers. Built provider browsing and filtering by governorate.",
+      "imageUrl": "assets/images/DmanCare_Banner.jpg",
+      "technologies": [
+        "Flutter",
+        "Firebase Auth",
+        "Firestore",
+        "Cubit"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.brightcode.brightcodehealthcare",
+      "githubUrl": "https://github.com/mohamedalifci"
+    },
+    {
+      "title": "Alamanah Trading",
+      "description": "Built a full e-commerce platform for selling electrical goods. Integrated WooCommerce REST APIs with WordPress backend.",
+      "imageUrl": "assets/images/Alamanah_Trading ِم.jpg",
+      "technologies": [
+        "Flutter",
+        "WooCommerce API",
+        "Cubit",
+        "Hive",
+        "MVVM"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.Kalloubove.alamanah",
+      "githubUrl": "https://github.com/mohamedalifci"
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Software Development - Mobile App Developer",
+      "platform": "DEPI",
+      "date": "2024",
+      "icon": "mobileButton"
+    },
+    {
+      "title": "Flutter Advanced Architecture: BLoC and MVVM",
+      "platform": "Udemy",
+      "date": "2023",
+      "icon": "layerGroup"
+    },
+    {
+      "title": "Complete Flutter & Dart Development",
+      "platform": "Udemy",
+      "date": "2023",
+      "icon": "code"
+    },
+    {
+      "title": "The Complete Flutter & Dart Development Bootcamp",
+      "platform": "Udemy",
+      "date": "2023",
+      "icon": "laptopCode"
+    }
+  ],
+  "techStack": [
+    {
+      "title": "Mobile Development",
+      "icon": "mobileScreen",
+      "skills": [
+        "Flutter & Dart Expert",
+        "Clean Architecture & MVVM",
+        "Bloc / Cubit State Management",
+        "Advanced UI & Animations",
+        "Payment Gateways Integration",
+        "Google Maps & Location Services",
+        "Push Notifications & FCM"
+      ]
+    },
+    {
+      "title": "Backend & APIs",
+      "icon": "server",
+      "skills": [
+        "RESTful API & Postman",
+        "Firebase (Auth & Firestore)",
+        "Supabase Development",
+        "WordPress & WooCommerce"
+      ]
+    },
+    {
+      "title": "Software Engineering",
+      "icon": "code",
+      "skills": [
+        "Git & GitHub Collaboration",
+        "OOP & Design Patterns",
+        "Data Structures & Algorithms",
+        "Performance & Debugging",
+        "AI-Assisted Development"
+      ]
+    },
+    {
+      "title": "Data & Local Storage",
+      "icon": "database",
+      "skills": [
+        "Hive & SQLite",
+        "SharedPreferences",
+        "Flutter Secure Storage"
+      ]
+    }
+  ]
+}
