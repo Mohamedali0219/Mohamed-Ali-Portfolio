@@ -8,8 +8,34 @@ import '../../core/data/portfolio_data.dart';
 import '../../core/utils/icon_helper.dart';
 import '../../core/widgets/section_title.dart';
 
-class TechStackSection extends StatelessWidget {
+class TechStackSection extends StatefulWidget {
   const TechStackSection({super.key});
+
+  @override
+  State<TechStackSection> createState() => _TechStackSectionState();
+}
+
+class _TechStackSectionState extends State<TechStackSection> {
+  final ScrollController _scrollController = ScrollController();
+  bool _showArrow = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.offset > 50 && _showArrow) {
+        setState(() => _showArrow = false);
+      } else if (_scrollController.offset <= 50 && !_showArrow) {
+        setState(() => _showArrow = true);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   List<Map<String, dynamic>> get categories =>
       List<Map<String, dynamic>>.from(PortfolioData.data['techStack'] ?? []);
@@ -20,42 +46,74 @@ class TechStackSection extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: isMobile ? 24 : 80,
+        horizontal: isMobile ? 0 : 80, // Full width for mobile scroll
         vertical: isMobile ? 40 : 80,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SectionTitle(
-            title: 'Technologies & Skills',
-            lineWidth: 80,
-            letterSpacing: 2,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: isMobile ? 24 : 0),
+            child: const SectionTitle(
+              title: 'Technologies & Skills',
+              lineWidth: 80,
+              letterSpacing: 2,
+            ),
           ),
           SizedBox(height: isMobile ? 40 : 80),
           isMobile 
-            ? SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Row(
-                  children: categories.asMap().entries.map((entry) {
-                    final index = entry.key;
-                    final category = entry.value;
-                    return Padding(
-                      padding: EdgeInsets.only(
-                        right: index == categories.length - 1 ? 0 : 20,
-                        left: index == 0 ? 4 : 0,
-                      ),
-                      child: _SkillCategoryCard(
-                        title: category['title'],
-                        icon: IconHelper.getIcon(category['icon'] ?? ''),
-                        skills: List<String>.from(category['skills'] ?? []),
-                        index: index,
-                        cardWidth: 300, // Fixed width for mobile scroll
-                      ),
-                    );
-                  }).toList(),
-                ),
+            ? Stack(
+                alignment: Alignment.centerRight,
+                children: [
+                  SingleChildScrollView(
+                    controller: _scrollController,
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                    child: Row(
+                      children: categories.asMap().entries.map((entry) {
+                        final index = entry.key;
+                        final category = entry.value;
+                        return Padding(
+                          padding: EdgeInsets.only(
+                            right: index == categories.length - 1 ? 0 : 20,
+                          ),
+                          child: _SkillCategoryCard(
+                            title: category['title'],
+                            icon: IconHelper.getIcon(category['icon'] ?? ''),
+                            skills: List<String>.from(category['skills'] ?? []),
+                            index: index,
+                            cardWidth: 300, // Fixed width for mobile scroll
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  if (_showArrow)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary.withValues(alpha: 0.1),
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppColors.primary.withValues(alpha: 0.2),
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.chevron_right,
+                          color: AppColors.secondary,
+                          size: 24,
+                        ),
+                      )
+                          .animate(onPlay: (controller) => controller.repeat())
+                          .shimmer(duration: 1200.ms, color: AppColors.secondary)
+                          .moveX(begin: -5, end: 5, duration: 600.ms, curve: Curves.easeInOutSine)
+                          .then()
+                          .moveX(begin: 5, end: -5, duration: 600.ms, curve: Curves.easeInOutSine),
+                    ).animate().fadeIn(),
+                ],
               )
             : LayoutBuilder(
                 builder: (context, constraints) {

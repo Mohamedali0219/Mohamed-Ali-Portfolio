@@ -87,20 +87,30 @@ class _ServicesSectionState extends State<ServicesSection> {
                     }).toList(),
                   ),
                 ),
-                if (_showArrow)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: const Icon(
-                      Icons.arrow_forward_ios,
-                      color: AppColors.primary,
-                      size: 30,
-                    )
-                        .animate(onPlay: (controller) => controller.repeat())
-                        .shimmer(duration: 1200.ms, color: AppColors.secondary)
-                        .moveX(begin: -5, end: 5, duration: 600.ms, curve: Curves.easeInOutSine)
-                        .then()
-                        .moveX(begin: 5, end: -5, duration: 600.ms, curve: Curves.easeInOutSine),
-                  ).animate().fadeIn(),
+                  if (_showArrow)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: AppColors.primary.withValues(alpha: 0.1),
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppColors.primary.withValues(alpha: 0.2),
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.chevron_right,
+                          color: AppColors.secondary,
+                          size: 24,
+                        ),
+                      )
+                          .animate(onPlay: (controller) => controller.repeat())
+                          .shimmer(duration: 1200.ms, color: AppColors.secondary)
+                          .moveX(begin: -5, end: 5, duration: 600.ms, curve: Curves.easeInOutSine)
+                          .then()
+                          .moveX(begin: 5, end: -5, duration: 600.ms, curve: Curves.easeInOutSine),
+                    ).animate().fadeIn(),
               ],
             )
           else
