@@ -1,4 +1,4 @@
-# 🚀 Flutter Portfolio App
+# 🚀 Mohamed Ali Portfolio
 
 A modern, elegant, and fully customizable **Flutter Portfolio Application** to showcase your skills, projects, and experience in a professional way.
 
